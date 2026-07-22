@@ -1,0 +1,11 @@
+<section>
+  @for (post of posts; track post.img) {
+    <article class="post">
+      <h2>{{ post.name }}</h2>
+
+      <img [src]="post.img" [alt]="'Beitrag von' + post.name" />
+
+      <p>Likes: {{ post.likes }}</p>
+    </article>
+  }
+</section>
