@@ -1,0 +1,17 @@
+.herz{
+    height: 20px;
+    width: 20px;
+    background: none;
+    border: none;
+
+    img {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+.Herz-div {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}

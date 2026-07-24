@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 interface Post {
   name:string;
   img:string;
+  isLiked: boolean;
   likes:number;
 }
 
@@ -13,21 +14,31 @@ interface Post {
   styleUrl: './main-page.scss',
 })
 export class MainPage {
+
   posts: Post[] = [
     {
       name: 'Tobias',
       img: './img/athapap-beach-6514331_640.jpg',
+      isLiked: false,
       likes: 123,
     },
     {
       name: 'Monika',
       img: './img/tommy_rau-boat-4344483_640.jpg',
+      isLiked: false,
       likes: 42,
     },
     {
       name: 'Peter',
       img: './img/felix_w-vines-4520513_640.jpg',
+      isLiked: false,
       likes: 246,
     },
   ]
+
+  toggleLike(post:Post) {
+    post.isLiked = !post.isLiked;
+    post.likes += post.isLiked ? 1: -1;
+  }
+
 }
