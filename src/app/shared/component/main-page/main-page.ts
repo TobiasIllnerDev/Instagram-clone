@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
+import { SinglePost } from './single-post/single-post';
 
-interface Post {
-  name:string;
-  img:string;
+export interface Post {
+  name: string;
+  img: string;
   isLiked: boolean;
-  likes:number;
+  likes: number;
 }
 
 @Component({
   selector: 'app-main-page',
-  imports: [],
+  imports: [SinglePost],
   templateUrl: './main-page.html',
   styleUrl: './main-page.scss',
 })
 export class MainPage {
-
   posts: Post[] = [
     {
       name: 'Tobias',
@@ -34,11 +34,5 @@ export class MainPage {
       isLiked: false,
       likes: 246,
     },
-  ]
-
-  toggleLike(post:Post) {
-    post.isLiked = !post.isLiked;
-    post.likes += post.isLiked ? 1: -1;
-  }
-
+  ];
 }

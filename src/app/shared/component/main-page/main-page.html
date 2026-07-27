@@ -1,20 +1,5 @@
 <section>
   @for (post of posts; track post.img) {
-    <article class="post">
-      <h2>{{ post.name }}</h2>
-
-      <img [src]="post.img" [alt]="'Beitrag von' + post.name" />
-
-      <div class="Herz-div">
-        <p>Likes: {{ post.likes }}</p>
-        <button class="herz" (click)="toggleLike(post)">
-          @if (post.isLiked) {
-            <img src="icons/Heart_red.png" alt="gefällt mir herz" />
-          } @else {
-            <img src="icons/heart.png" alt="gefällt mir nicht herz" />
-          }
-        </button>
-      </div>
-    </article>
+    <app-single-post [post]="post"></app-single-post>
   }
 </section>

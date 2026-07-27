@@ -1,0 +1,16 @@
+<article class="post">
+  <h2>{{ post.name }}</h2>
+
+  <img [src]="post.img" [alt]="'Beitrag von ' + post.name" />
+
+  <div class="Herz-div">
+    <p>Likes: {{ post.likes }}</p>
+    <button class="herz" (click)="toggleLike()">
+      @if (post.isLiked) {
+        <img src="icons/Heart_red.png" alt="Gefällt mir" />
+      } @else {
+        <img src="icons/heart.png" alt="Gefällt mir nicht" />
+      }
+    </button>
+  </div>
+</article>
