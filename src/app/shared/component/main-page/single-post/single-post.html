@@ -1,16 +1,53 @@
 <article class="post">
-  <h2>{{ post.name }}</h2>
+  <h2>{{ post().name }}</h2>
 
-  <img [src]="post.img" [alt]="'Beitrag von ' + post.name" />
+  <img
+    class="post-image"
+    [src]="post().img"
+    [alt]="'Beitrag von ' + post().name"
+  />
 
-  <div class="Herz-div">
-    <p>Likes: {{ post.likes }}</p>
-    <button class="herz" (click)="toggleLike()">
-      @if (post.isLiked) {
-        <img src="icons/Heart_red.png" alt="Gefällt mir" />
+  <div class="like-row">
+    <p>Likes: {{ post().likes }}</p>
+    <button
+      class="heart"
+      type="button"
+      [attr.aria-label]="post().isLiked ? 'Gefällt mir entfernen' : 'Gefällt mir'"
+      (click)="likeToggled.emit(postIndex())"
+    >
+      @if (post().isLiked) {
+        <img src="icons/Heart_red.png" alt="" />
       } @else {
-        <img src="icons/heart.png" alt="Gefällt mir nicht" />
+        <img src="icons/heart.png" alt="" />
       }
     </button>
   </div>
+
+  <section class="comments" aria-label="Kommentare">
+    <h3>Kommentare</h3>
+
+    @if (post().comments.length) {
+      <ul>
+        @for (comment of post().comments; track $index) {
+          <li>{{ comment }}</li>
+        }
+      </ul>
+    } @else {
+      <p class="no-comments">Noch keine Kommentare.</p>
+    }
+
+    <form (submit)="addComment($event)">
+      <label [for]="'comment-' + postIndex()">Kommentar hinzufügen</label>
+      <div class="comment-input">
+        <input
+          [id]="'comment-' + postIndex()"
+          type="text"
+          placeholder="Kommentar schreiben …"
+          [value]="comment()"
+          (input)="onCommentInput($event)"
+        />
+        <button type="submit" [disabled]="!comment().trim()">Posten</button>
+      </div>
+    </form>
+  </section>
 </article>

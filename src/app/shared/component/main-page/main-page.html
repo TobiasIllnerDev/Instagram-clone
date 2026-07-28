@@ -1,5 +1,10 @@
 <section>
-  @for (post of posts; track post.img) {
-    <app-single-post [post]="post"></app-single-post>
+  @for (post of posts(); track post.img; let postIndex = $index) {
+    <app-single-post
+      [post]="post"
+      [postIndex]="postIndex"
+      (likeToggled)="toggleLike($event)"
+      (commentAdded)="addComment($event.postIndex, $event.comment)"
+    />
   }
 </section>
