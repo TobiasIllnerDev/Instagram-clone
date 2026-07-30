@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { Subscribers } from '../subscribers/subscribers';
 import { SinglePost } from './single-post/single-post';
 
 export interface Post {
@@ -11,7 +12,7 @@ export interface Post {
 
 @Component({
   selector: 'app-main-page',
-  imports: [SinglePost],
+  imports: [SinglePost, Subscribers],
   templateUrl: './main-page.html',
   styleUrl: './main-page.scss',
 })

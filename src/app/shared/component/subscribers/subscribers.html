@@ -1,0 +1,29 @@
+<aside class="subscribers" aria-labelledby="subscribers-title">
+  <header class="subscribers__header">
+    <p class="subscribers__eyebrow">Dein Netzwerk</p>
+    <h2 id="subscribers-title">Subscribers</h2>
+    <p>{{ subscribers().length }} Personen haben dich abonniert.</p>
+  </header>
+
+  <ul class="subscriber-list">
+    @for (subscriber of subscribers(); track subscriber.name) {
+      <li class="subscriber-card">
+        <div class="subscriber-card__avatar" aria-hidden="true">
+          {{ subscriber.name.charAt(0) }}
+        </div>
+
+        <div class="subscriber-card__details">
+          <strong>{{ subscriber.name }}</strong>
+
+          @if (subscriber.isFollowing) {
+            <span class="following">Folgt dir</span>
+          } @else {
+            <span class="not-following">Folgt dir nicht</span>
+          }
+        </div>
+      </li>
+    } @empty {
+      <li class="subscriber-list__empty">Noch keine Subscribers vorhanden.</li>
+    }
+  </ul>
+</aside>

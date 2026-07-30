@@ -29,6 +29,17 @@ describe('MainPage', () => {
     expect(comments[0].textContent).toContain('Was für eine schöne Aussicht!');
   });
 
+  it('should render subscribers together with the feed', () => {
+    fixture.detectChanges();
+
+    const page = fixture.nativeElement.querySelector(
+      '.main-page',
+    ) as HTMLElement;
+
+    expect(page.querySelector('.feed')).toBeTruthy();
+    expect(page.querySelector('app-subscribers')).toBeTruthy();
+  });
+
   it('should add a comment to the correct post', () => {
     fixture.detectChanges();
     const firstPost = fixture.nativeElement.querySelector(

@@ -1,10 +1,14 @@
-<section>
-  @for (post of posts(); track post.img; let postIndex = $index) {
-    <app-single-post
-      [post]="post"
-      [postIndex]="postIndex"
-      (likeToggled)="toggleLike($event)"
-      (commentAdded)="addComment($event.postIndex, $event.comment)"
-    />
-  }
-</section>
+<main class="main-page">
+  <section class="feed" aria-label="Beiträge">
+    @for (post of posts(); track post.img; let postIndex = $index) {
+      <app-single-post
+        [post]="post"
+        [postIndex]="postIndex"
+        (likeToggled)="toggleLike($event)"
+        (commentAdded)="addComment($event.postIndex, $event.comment)"
+      />
+    }
+  </section>
+
+  <app-subscribers />
+</main>
