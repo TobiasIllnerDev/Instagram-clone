@@ -1,59 +1,97 @@
-# InstagramClone
+# Instagram Clone
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.7.
+A small Instagram-inspired frontend application built with Angular, TypeScript and SCSS.
 
-## Development server
+The project was created to practice Angular fundamentals such as component-based architecture, routing, state management with signals and communication between components.
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
+* Instagram-inspired post feed
+* Multiple posts with images and user information
+* Like and unlike posts
+* Dynamic like counter
+* Add comments to individual posts
+* Display existing comments
+* Subscriber section
+* Contact page
+* Navigation between pages using Angular Router
+* Component-based application structure
+
+## Tech Stack
+
+* Angular
+* TypeScript
+* SCSS
+* HTML5
+* Angular Router
+* Angular Signals
+
+## Project Structure
+
+The application is split into several reusable Angular components.
+
+```text
+src/app/
+├── services/
+│   └── subscriber-list.ts
+│
+├── shared/
+│   └── component/
+│       ├── contact/
+│       ├── main-page/
+│       │   └── single-post/
+│       └── subscribers/
+│
+├── app.routes.ts
+├── app.html
+├── app.scss
+└── app.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Getting Started
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Clone the repository:
 
 ```bash
-ng generate component component-name
+git clone https://github.com/TobiasIllnerDev/Instagram-clone.git
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Navigate into the project directory:
 
 ```bash
-ng generate --help
+cd Instagram-clone
 ```
 
-## Building
-
-To build the project run:
+Install the dependencies:
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Start the development server:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Then open:
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```text
+http://localhost:4200
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Learning Goals
 
-## Additional Resources
+This project was mainly created to practice:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+* Building applications with Angular components
+* Passing data between parent and child components
+* Using inputs and outputs
+* Managing UI state with Angular Signals
+* Updating data immutably
+* Working with Angular Router
+* Structuring a small Angular application
+
+## Project Status
+
+This is a learning project focused on practicing Angular fundamentals and frontend application architecture.
